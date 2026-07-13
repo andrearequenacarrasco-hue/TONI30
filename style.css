@@ -1,0 +1,377 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:white;
+    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
+}
+
+/* ===========================
+   LOADER
+=========================== */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    z-index:9999;
+}
+
+#loader h1{
+    font-size:60px;
+    font-weight:900;
+    margin-bottom:15px;
+}
+
+#loader span{
+    color:#7DFF2B;
+}
+
+#loader p{
+    letter-spacing:4px;
+    margin-bottom:30px;
+}
+
+.loading-bar{
+    width:300px;
+    height:8px;
+    background:#222;
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.loading-progress{
+    width:0%;
+    height:100%;
+    background:#7DFF2B;
+    animation:loading 2s linear forwards;
+}
+
+@keyframes loading{
+    from{
+        width:0%;
+    }
+    to{
+        width:100%;
+    }
+}
+
+#loader.hide{
+    opacity:0;
+    visibility:hidden;
+    transition:.6s;
+}
+
+/* ===========================
+   CONTENIDO
+=========================== */
+
+.main-content{
+
+    width:100%;
+    max-width:430px;
+    margin:auto;
+    padding-top:42px;
+
+    opacity:0;
+    transform:translateY(40px);
+    transition:.9s;
+
+}
+
+.loaded .main-content{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.main-content img{
+    width:100%;
+    display:block;
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero-section{
+    position:relative;
+}
+
+.hero-container{
+    position:relative;
+}
+
+.hero-logo{
+    opacity:0;
+    transform:scale(.75);
+    transition:.8s cubic-bezier(.17,.89,.32,1.4);
+}
+
+.loaded .hero-logo{
+    opacity:1;
+    transform:scale(1);
+}
+
+/* ===========================
+   BOTÓN
+=========================== */
+
+.enter-button{
+
+    position:absolute;
+
+    left:50%;
+    top:calc(100% - 170px);
+
+    transform:translateX(-50%);
+
+    width:250px;
+    height:58px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    display:flex;
+    text-align:center;
+    padding:0 20px;
+    line-height:1;
+
+    background:#111;
+    color:#fff;
+
+    text-decoration:none;
+
+    font-family:'Montserrat', sans-serif;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+
+    border:none;
+    border-radius:8px;
+
+    box-shadow:0 0 18px rgba(125,255,43,.35);
+
+    overflow:hidden;
+
+    transition:
+    transform .25s ease,
+    background .25s ease,
+    color .25s ease,
+    opacity .25s ease;
+
+    z-index:50;
+}
+
+.enter-button::before,
+.enter-button::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:30px;
+    height:30px;
+
+    background:white;      /* mismo color que el fondo */
+
+    border:none;
+
+    border-radius:50%;
+
+    top:50%;
+    transform:translateY(-50%);
+}
+
+.enter-button::before{
+
+    left:-18px;
+
+}
+
+.enter-button::after{
+
+    right:-18px;
+
+}
+
+.enter-button:hover{
+
+    background:#7DFF2B;
+    color:#000;
+
+    transform:translateX(-50%) scale(1.05);
+
+}
+
+/* ===========================
+   BARRA SUPERIOR
+=========================== */
+
+.top-banner{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:42px;
+    background:#000;
+    overflow:hidden;
+    z-index:999;
+
+    display:flex;
+    align-items:center;
+
+    transform:translateY(-100%);
+    transition:transform .6s ease;
+}
+
+.loaded .top-banner{
+    transform:translateY(0);
+}
+
+.banner-track{
+
+    display:flex;
+    white-space:nowrap;
+
+    animation:bannerMove 18s linear infinite;
+
+}
+
+
+
+@keyframes bannerMove{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+
+}
+
+.banner-item{
+
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-right:45px;
+    flex-shrink:0;
+
+}
+
+.toni{
+
+    color:#fff;
+    font-family:'Montserrat',sans-serif;
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:2px;
+
+}
+
+.thirty{
+
+    color:#7DFF2B;
+    font-family:'Montserrat',sans-serif;
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:2px;
+
+}
+
+.fest{
+
+    color:#fff;
+    font-family:'Montserrat',sans-serif;
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:2px;
+
+}
+
+.star{
+
+    color:#4338CA;
+
+    font-family:'Montserrat',sans-serif;
+    font-size:18px;
+    font-weight:700;
+
+}
+
+/* ===========================
+   BARRA FINAL
+=========================== */
+
+.bottom-banner{
+
+    width:100%;
+    height:42px;
+
+    background:#000;
+
+    display:flex;
+    align-items:center;
+
+    overflow:hidden;
+
+    margin-top:-42px;
+
+    position:relative;
+    z-index:10;
+
+}
+
+/* ===========================
+   MENSAJES FESTIVAL
+=========================== */
+
+#festival-message{
+
+    position:absolute;
+
+    left:50%;
+    top:calc(100% - 95px);
+
+    transform:translateX(-50%);
+
+    width:320px;
+
+    text-align:center;
+
+    font-family:'Montserrat',sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    color:#666;
+
+    z-index:100;
+
+    opacity:0;
+    transition:opacity .5s ease;
+
+    pointer-events:none;
+
+}
+
+#festival-message.show{
+    opacity:1;
+}
