@@ -377,3 +377,65 @@ body{
 #festival-message.show{
     opacity:1;
 }
+
+#programa{
+    scroll-margin-top:60px;
+}
+
+/* ===========================
+   FLECHA SIGUIENTE PÁGINA
+=========================== */
+
+#programa{
+    position:relative;
+}
+
+.next-arrow{
+
+    position:absolute;
+
+    bottom:10px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:#7DFF2B;
+
+    text-decoration:none;
+
+    font-size:22px;
+    font-weight:bold;
+
+    opacity:.9;
+
+    animation:arrowMove 1.5s infinite;
+
+}
+
+
+@keyframes arrowMove{
+
+    0%,100%{
+        transform:translateX(-50%) translateY(0);
+    }
+
+    50%{
+        transform:translateX(-50%) translateY(8px);
+    }
+
+}
+
+html, body{
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+}
+
+.main-content{
+    margin-bottom:0;
+    padding-bottom:0;
+}
+
+.bottom-banner{
+    margin-bottom:0;
+}
